@@ -15,6 +15,11 @@ template '/var/www/html/index.html' do
   )
 end
 
+#cookbook_file '/var/www/html/index.html' do
+#  source 'index.html'
+#  action :create
+#end
+
 service 'httpd' do
   action [ :enable, :start ]
 end
