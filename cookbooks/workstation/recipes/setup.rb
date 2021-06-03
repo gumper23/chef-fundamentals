@@ -26,6 +26,14 @@ package 'zsh' do
   action :install
 end
 
+package 'epel-release' do
+  action :install
+end
+
+package 'jq' do
+  action :install
+end
+
 template '/etc/motd' do
   action :create
   source 'motd.erb'
@@ -39,4 +47,12 @@ end
 
 service 'ntpd' do
   action [ :enable, :start ]
+end
+
+user 'user1' do
+  action :remove
+end
+
+group 'admins' do
+  action :remove
 end

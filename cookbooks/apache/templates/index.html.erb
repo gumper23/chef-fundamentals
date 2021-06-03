@@ -20,14 +20,18 @@
                 <th>HOSTNAME</th>
                 <th>IPADDRESS</th>
                 <th>CPU</th>
+                <th>PROCESSORS</th>
                 <th>MEMORY</th>
+                <th>TIMEZONE</th>
             </tr>
             <tr>
                 <td><%= @name %></td>
                 <td><%= node['hostname'] %></td>
                 <td><%= node['ipaddress'] %></td>
                 <td><%= node['cpu']['0']['mhz'] %></td>
+                <td><%= node['cpu']['real'] %></td>
                 <td><%= node['memory']['total'] %></td>
+                <td><%= node['time']['timezone'] %></td>
             </tr>
         </table>
 </body>
