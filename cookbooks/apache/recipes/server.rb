@@ -3,6 +3,11 @@
 # Recipe:: server
 #
 # Copyright (c) 2021 The Authors, All Rights Reserved.
+log 'start' do
+  message 'Starting apache server recipe'
+  level :info
+end
+
 package 'httpd' do
   action :install
 end
@@ -18,7 +23,6 @@ end
 
 service 'httpd' do
   action [ :enable, :start ]
-  subscribes :restart, 'template[/var/www/html/index.html]', :immediately
 end
 
 #directory '/var/www/mysites' do
@@ -52,3 +56,8 @@ end
 #  user 'root'
 #  command './myscript.sh'
 #end
+
+log 'end' do
+  message 'Ending apache server recipe'
+  level :info
+end
