@@ -10,6 +10,12 @@ end
 
 package 'httpd' do
   action :install
+  only_if { node['platform'] == 'redhat' }
+end
+
+package 'apache2' do
+  action :install
+  only_if { node['platform'] == 'ubuntu' }
 end
 
 template '/var/www/html/index.html' do
@@ -23,6 +29,17 @@ end
 
 service 'httpd' do
   action [ :enable, :start ]
+  only_if { node['platform'] == 'redhat' }
+end
+
+service 'apache2' do
+  action [ :enable, :start ]
+  only_if { node['platform'] == 'ubuntu' }
+end
+
+output="#{Chef::JSONCompat.to_json_pretty(node.to_hash)}"
+file '/tmp/node.json' do
+  content output
 end
 
 #directory '/var/www/mysites' do

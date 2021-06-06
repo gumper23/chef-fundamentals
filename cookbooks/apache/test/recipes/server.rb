@@ -13,6 +13,11 @@ unless os.windows?
 end
 
 describe port(80) do
-  it { should_not be_listening }
+  it { should be_listening }
+  its('protocols') { should include 'tcp' }
   skip 'This is an example test, replace with your own test.'
+end
+
+describe command('curl localhost') do
+  its(:stdout) { should match(/Hello, world!/) }
 end
