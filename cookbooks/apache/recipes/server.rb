@@ -10,7 +10,7 @@ end
 
 package 'httpd' do
   action :install
-  only_if { node['platform'] == 'redhat' }
+  only_if { node['platform'] == 'centos' }
 end
 
 package 'apache2' do
@@ -29,7 +29,7 @@ end
 
 service 'httpd' do
   action [ :enable, :start ]
-  only_if { node['platform'] == 'redhat' }
+  only_if { node['platform'] == 'centos' }
 end
 
 service 'apache2' do
