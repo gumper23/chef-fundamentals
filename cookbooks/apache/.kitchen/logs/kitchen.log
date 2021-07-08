@@ -1,3 +1,0 @@
-I, [2021-06-06T02:24:54.837022 #30652]  INFO -- Kitchen: -----> Starting Test Kitchen (v2.11.2)
-I, [2021-06-06T02:24:56.073910 #30652]  INFO -- Kitchen: -----> Destroying <default-ubuntu-1604>...
-I, [2021-06-06T02:25:00.165857 #30652]  INFO -- Kitchen: -----> Test Kitchen is finished. (0m5.33s)

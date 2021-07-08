@@ -14,5 +14,6 @@ end
 
 describe port(80) do
   it { should be_listening }
+  its('protocols') { should include('tcp') }
   skip 'This is an example test, replace with your own test.'
 end
